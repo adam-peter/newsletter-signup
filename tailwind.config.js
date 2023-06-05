@@ -12,6 +12,10 @@ export default {
       fontFamily: {
         "roboto": ["Roboto", "sans-serif"],
       },
+      screens: {
+        "mobile": "375px",
+        "desktop": "1440px"
+      }
     },
   },
   plugins: [],

@@ -1,15 +1,26 @@
 <script lang="ts">
   import "./app.css";
   import IconLi from "./components/IconLi.svelte";
+
+  let width;
 </script>
+
+<svelte:window bind:innerWidth={width} />
 
 <main
   class="mx-auto flex h-[100vh] w-[100vw] flex-col font-roboto text-darkSlate"
 >
-  <img
-    src="./images/illustration-sign-up-mobile.svg"
-    alt="sign up illustration"
-  />
+  {#if width <= 375}
+    <img
+      src="./images/illustration-sign-up-mobile.svg"
+      alt="sign up illustration"
+    />
+  {:else}
+    <img
+      src="./images/illustration-sign-up-desktop.svg"
+      alt="sign up illustration"
+    />
+  {/if}
   <div class="mx-auto mt-10">
     <h1 class="text-6xl font-bold">Stay updated!</h1>
     <p class="mt-7 text-xl">
@@ -29,7 +40,8 @@
           type="text"
           placeholder="email@company.com"
         />
-        <button class="mt-6 block w-full bg-darkSlate py-4 font-bold text-white rounded-lg"
+        <button
+          class="mt-6 block w-full rounded-lg bg-darkSlate py-4 font-bold text-white"
           >Subscribe to monthly newsletter</button
         >
       </label>
