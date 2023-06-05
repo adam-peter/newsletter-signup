@@ -1,26 +1,38 @@
 <script lang="ts">
   import "./app.css";
+  import IconLi from "./components/IconLi.svelte";
 </script>
 
-<main class="h-[100vh] w-[100vw] flex flex-col mx-auto">
+<main
+  class="mx-auto flex h-[100vh] w-[100vw] flex-col font-roboto text-darkSlate"
+>
   <img
     src="./images/illustration-sign-up-mobile.svg"
     alt="sign up illustration"
   />
+  <div class="mx-auto mt-10">
+    <h1 class="text-6xl font-bold">Stay updated!</h1>
+    <p class="mt-7 text-xl">
+      Join 60,000+ product managers receiving monthly updates on:
+    </p>
+    <ul class="mt-7">
+      <IconLi>Product discovery and building what matters</IconLi>
+      <IconLi>Measuring to ensure updates are a success</IconLi>
+      <IconLi>And much more!</IconLi>
+    </ul>
 
-  <h1>Stay updated!</h1>
-  <p>Join 60,000+ product managers receiving monthly updates on:</p>
-  <ul>
-    <li>Product discovery and building what matters</li>
-    <li>Measuring to ensure updates are a success</li>
-    <li>And much more!</li>
-  </ul>
-
-  <form action="">
-    <label>
-      <p class="">Email address</p>
-      <input class="block" type="text" placeholder="email@company.com" />
-      <button class="block">Subscribe to monthly newsletter</button>
-    </label>
-  </form>
+    <form action="" class="mt-10">
+      <label>
+        <p class="text-sm font-bold">Email address</p>
+        <input
+          class="mt-2 block w-full rounded-lg border border-grey px-6 py-4"
+          type="text"
+          placeholder="email@company.com"
+        />
+        <button class="mt-6 block w-full bg-darkSlate py-4 font-bold text-white rounded-lg"
+          >Subscribe to monthly newsletter</button
+        >
+      </label>
+    </form>
+  </div>
 </main>
