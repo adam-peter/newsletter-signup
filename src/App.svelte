@@ -1,6 +1,5 @@
 <script lang="ts">
   import "./app.css";
-  import IconLi from "./components/IconLi.svelte";
   import MainPage from "./pages/MainPage.svelte";
   import Submitted from "./pages/Submitted.svelte";
 
@@ -14,8 +13,8 @@
   class="mx-auto flex h-[100vh] w-[100vw] flex-col font-roboto text-charcoal"
 >
   {#if submitted}
-    <Submitted bind:submitted/>
+    <Submitted bind:submitted />
   {:else}
-    <MainPage width bind:submitted />
+    <MainPage {width} bind:submitted />
   {/if}
 </main>

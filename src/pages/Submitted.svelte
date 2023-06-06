@@ -12,5 +12,5 @@
       >{"email"}</span
     >. Please open it and click the button inside to confirm your subscription.
   </p>
-  <Button on:click={() => submitted = !submitted} text="Dismiss message" className="mt-10"/>
+  <Button on:click={() => submitted = false} text="Dismiss message" className="mt-10"/>
 </div>

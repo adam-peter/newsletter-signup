@@ -1,12 +1,24 @@
-<script>
+<script lang="ts">
+  import { z } from "zod";
+
   import Button from "../components/Button.svelte";
   import IconLi from "../components/IconLi.svelte";
 
-  export let width;
+  export let width: number;
   export let submitted;
 
-  const handleSubmit = () => {
-    submitted = true;
+  let email = "";
+  let isValid = true;
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+    const emailSchema = z.string().email();
+    try {
+      emailSchema.parse(email);
+      submitted = true;
+    } catch (err) {
+      isValid = false;
+    }
   };
 </script>
 
@@ -34,13 +46,22 @@
 
   <form on:submit={handleSubmit} class="mt-10">
     <label>
-      <p class="text-sm font-bold">Email address</p>
+      <div class="flex justify-between">
+        <p class="text-sm font-bold">Email address</p>
+        {#if !isValid}
+          <p class="text-sm font-bold text-tomato">Valid email required</p>
+        {/if}
+      </div>
       <input
-        class="mt-2 block w-full rounded-lg border border-grey px-6 py-4"
+        class={`${
+          isValid ? "" : "border-tomato bg-tomato/20 text-tomato"
+        } mt-2 block w-full rounded-lg border border-grey px-6 py-4`}
         type="text"
+        on:focus={() => (isValid = true)}
+        bind:value={email}
         placeholder="email@company.com"
       />
-      <Button className="mt-5" text="Subscribe to monthly newsletter"/>
+      <Button className="mt-5" text="Subscribe to monthly newsletter" />
     </label>
   </form>
 </div>
