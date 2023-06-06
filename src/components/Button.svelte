@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
 
-  export let text;
-  export let className;
+  export let text: string;
+  export let className: string;
 
   const handleClick = () => {
     dispatch("click");
