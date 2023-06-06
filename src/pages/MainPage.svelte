@@ -1,4 +1,5 @@
 <script>
+  import Button from "../components/Button.svelte";
   import IconLi from "../components/IconLi.svelte";
 
   export let width;
@@ -39,10 +40,7 @@
         type="text"
         placeholder="email@company.com"
       />
-      <button
-        class="mt-6 block w-full rounded-lg bg-darkSlate py-4 font-bold text-white"
-        >Subscribe to monthly newsletter</button
-      >
+      <Button className="mt-5" text="Subscribe to monthly newsletter"/>
     </label>
   </form>
 </div>

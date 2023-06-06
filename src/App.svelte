@@ -14,7 +14,7 @@
   class="mx-auto flex h-[100vh] w-[100vw] flex-col font-roboto text-charcoal"
 >
   {#if submitted}
-    <Submitted />
+    <Submitted bind:submitted/>
   {:else}
     <MainPage width bind:submitted />
   {/if}
