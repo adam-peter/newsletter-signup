@@ -5,7 +5,7 @@
   import Submitted from "./pages/Submitted.svelte";
 
   let width: number;
-  let submitted = true;
+  let submitted = false;
 </script>
 
 <svelte:window bind:innerWidth={width} />
